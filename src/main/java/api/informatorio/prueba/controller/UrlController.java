@@ -1,6 +1,4 @@
 package api.informatorio.prueba.controller;
-
-
 import api.informatorio.prueba.entity.Url;
 import api.informatorio.prueba.entity.UrlDTO;
 import api.informatorio.prueba.service.IUrlService;
@@ -12,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/url")
 public class UrlController {
-
     @Autowired
     IUrlService iUrlService;
 
@@ -21,13 +18,11 @@ public class UrlController {
         iUrlService.createUrl(url);
         return ResponseEntity.status(HttpStatus.OK).body("Url created");
     }
-
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteUrl(@PathVariable("id") Long id){
         iUrlService.deleteUrl(id);
         return ResponseEntity.status(HttpStatus.OK).body("Url eliminated");
     }
-
     @GetMapping("/{id}")
     public UrlDTO findUrl(@PathVariable("id") Long id){
         return iUrlService.findUrl(id);

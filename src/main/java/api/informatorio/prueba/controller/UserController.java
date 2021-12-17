@@ -11,12 +11,10 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
 import javax.validation.Valid;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Set;
-
 @RestController
 @RequestMapping("/users") //localhost:8080/users
 public class UserController {
@@ -48,7 +46,6 @@ public class UserController {
         iUserService.deleteUser(id);
         return ResponseEntity.status(HttpStatus.OK).body("User eliminated");
     }
-
     @PutMapping("/{id}")
     public User modifyUser(@PathVariable("id") Long id,@Valid @RequestBody User user,Errors errors){
         if (errors.hasErrors()){
@@ -56,7 +53,6 @@ public class UserController {
         }
         return iUserService.modifyUser(id,user);
     }
-
     @GetMapping("/list/city")
     public Set<UserDTO> getUsersByCity(@RequestParam String city){
         return iUserService.getUsersByCity(city);
@@ -66,7 +62,6 @@ public class UserController {
     public Set<UserDTO> getUserByDate(@RequestParam Date creationDate){
         return iUserService.getUserByDate(creationDate);
     }
-
     public void throwError(Errors errors){
         String message = "";
         int index = 0;

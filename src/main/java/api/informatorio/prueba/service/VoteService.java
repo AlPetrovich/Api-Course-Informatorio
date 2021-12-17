@@ -6,18 +6,14 @@ import api.informatorio.prueba.repository.IVoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Set;
-
 @Service
 public class VoteService implements IVoteService{
-
     @Autowired
     IVoteRepository iVoteRepository;
     @Autowired
     IUserRepository iUserRepository;
     @Autowired
     IStartupRepository iStartupRepository;
-
-
     @Override
     public Vote createVote(Long userId, Long startupId, Vote vote) {
         User user= iUserRepository.getById(userId);
@@ -27,12 +23,10 @@ public class VoteService implements IVoteService{
         vote.setStartup(startup);
         return iVoteRepository.save(vote);
     }
-
     @Override
     public Vote findById(Long id) {
         return iVoteRepository.getById(id);
     }
-
     @Override
     public Set<Vote> getVotesByUser(Long id) {
         return iVoteRepository.getVotesByUser(id);

@@ -36,8 +36,6 @@ public class VoteController {
         return iVoteService.findById(id);
     }
 
-
-
     @GetMapping("/voteUser/{id}")
     public Set<Vote> getVotesByUser(@PathVariable("id") Long id){
         return iVoteService.getVotesByUser(id);

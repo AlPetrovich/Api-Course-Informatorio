@@ -13,14 +13,11 @@ import java.util.Set;
 @Table(name = "Tags")
 @Getter @Setter
 public class Tag {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Long id;
-
     private String name;
-
     @ManyToMany(mappedBy = "tagSet")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Set<Startup> startupSet = new HashSet<Startup>();

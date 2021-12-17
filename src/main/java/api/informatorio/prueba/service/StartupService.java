@@ -1,5 +1,4 @@
 package api.informatorio.prueba.service;
-
 import api.informatorio.prueba.entity.Startup;
 import api.informatorio.prueba.entity.StartupDTO;
 import api.informatorio.prueba.entity.Tag;
@@ -10,12 +9,9 @@ import api.informatorio.prueba.repository.IUserRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.*;
-
 @Service
 public class StartupService implements IStartupService{
-
     @Autowired
     IStartupRepository startupRepository;
     @Autowired
@@ -24,8 +20,6 @@ public class StartupService implements IStartupService{
     ITagRepository tagRepository;
     @Autowired
     ObjectMapper mapper;
-
-
     @Override
     public StartupDTO findStartup(Long id) {
         Optional<Startup> startup =startupRepository.findById(id);
@@ -45,27 +39,22 @@ public class StartupService implements IStartupService{
         }
         return startupDTOSet;
     }
-
     @Override
     public void deactivateStartup(Long id) {
         Startup startup= startupRepository.getById(id);
         startup.setPublished(false);
         startupRepository.save(startup);
     }
-
     @Override
     public void activateStartup(Long id) {
         Startup startup= startupRepository.getById(id);
         startup.setPublished(true);
         startupRepository.save(startup);
     }
-
     @Override
     public void updateStartup(Startup startup) {
         startupRepository.save(startup);
     }
-
-
     @Override
     public Set<StartupDTO> getStartupByPublished(boolean published) {
         Set<Startup> startupSet=startupRepository.getStartupByPublished(published);
@@ -76,7 +65,6 @@ public class StartupService implements IStartupService{
         }
         return startupDTOSet;
     }
-
     @Override
     public Set<StartupDTO> getByLike(String name) {
         Tag tag= tagRepository.getByTag(name);
@@ -87,7 +75,6 @@ public class StartupService implements IStartupService{
         }
         return startupDTOSet;
     }
-
     @Override
     public Startup save(Long userId, Startup startup) {
         User user = userRepository.getById(userId);

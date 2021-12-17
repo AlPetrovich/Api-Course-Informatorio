@@ -16,11 +16,9 @@ public class Url {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @NotEmpty(message = "the url field cannot be empty")
     @Size(min=3, max = 255, message = "the url field must contain between 3 and 255 characters")
     private String url;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "startup_id", nullable = false)
     @JsonIgnore

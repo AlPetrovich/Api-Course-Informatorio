@@ -1,29 +1,22 @@
 package api.informatorio.prueba.service;
-
 import api.informatorio.prueba.entity.User;
 import api.informatorio.prueba.entity.UserDTO;
 import api.informatorio.prueba.repository.IUserRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.time.LocalDateTime;
 import java.util.*;
 
 @Service
 public class UserService implements IUserService{
-
     @Autowired
     IUserRepository userRepository;
     @Autowired
     ObjectMapper mapper;
-
     @Override
     public void createUser(User user) {
         userRepository.save(user);
     }
-
-
     @Override
     public User modifyUser(Long id,User user) {
         User userM= userRepository.getById(id);
@@ -38,7 +31,6 @@ public class UserService implements IUserService{
         userM.setCreationDate(user.getCreationDate());
         return userRepository.save(userM);
     }
-
     @Override
     public UserDTO findUser(Long id) {
         UserDTO userDTO= null;
@@ -48,7 +40,6 @@ public class UserService implements IUserService{
         }
         return userDTO;
     }
-
     @Override
     public Collection<UserDTO> getAll() {
         List<User> userList=userRepository.findAll();
@@ -58,12 +49,10 @@ public class UserService implements IUserService{
         }
         return userDTOSet;
     }
-
     @Override
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
     }
-
     @Override
     public Set<UserDTO> getUsersByCity(String city) {
         Set<User> userSet=userRepository.getUserByCity(city);
@@ -73,7 +62,6 @@ public class UserService implements IUserService{
         }
         return userDTOSet;
     }
-
     @Override
     public Set<UserDTO> getUserByDate(Date creationDate) {
         Set<User> userSet=userRepository.getUserByDate(creationDate);

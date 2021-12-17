@@ -19,11 +19,9 @@ public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @NotEmpty(message = "the DESCRIPTION field cannot be empty")
     @Size(min=3, max = 255, message = "the descriptionEvent field must contain between 4 and 255 characters")
     private String descriptionEvent;
-
 
     private boolean active;
 
@@ -40,12 +38,10 @@ public class Event {
     @Min(value = 0, message = "the prize field must be greater or equal to zero")
     private double prize;
 
-
     @ManyToMany(mappedBy ="eventSet")
     @JsonIgnoreProperties({"creator","tagSet"})
     @OrderBy("counterVote DESC")
     private Set<Startup> startupSet;
-
 
     public void addStartup(Startup startup){
         startupSet.add(startup);
