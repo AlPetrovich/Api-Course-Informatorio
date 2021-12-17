@@ -13,7 +13,6 @@ public interface IUserService {
 
     public void createUser(User user);
 
-
     public User modifyUser(Long id,User user);
 
     public UserDTO findUser(Long id);

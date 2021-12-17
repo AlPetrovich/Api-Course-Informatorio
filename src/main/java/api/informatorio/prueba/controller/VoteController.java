@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
+import javax.validation.Valid;
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
@@ -25,7 +26,7 @@ public class VoteController {
     IVoteService iVoteService;
 
     @PostMapping("/create/user/{idUser}/startup/{idSt}")
-    public ResponseEntity<?> createVote (@PathVariable("idUser") Long userId,@PathVariable("idSt") Long startupId, @RequestBody Vote vote){
+    public ResponseEntity<?> createVote (@PathVariable("idUser") Long userId,@PathVariable("idSt") Long startupId,@Valid @RequestBody Vote vote){
         iVoteService.createVote(userId,startupId,vote);
         return ResponseEntity.ok(HttpStatus.OK);
     }

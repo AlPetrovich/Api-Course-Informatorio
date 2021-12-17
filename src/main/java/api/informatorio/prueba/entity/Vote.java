@@ -1,6 +1,4 @@
 package api.informatorio.prueba.entity;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
@@ -23,8 +21,8 @@ public class Vote{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotEmpty(message = "el campo generateBy no puede estar vacio")
-    @Size(min=3, max = 255, message = "el campo generateBy debe tener entre 4 y 255 caracteres")
+    @NotEmpty(message = "the generatedBy field cannot be empty")
+    @Size(min=3, max = 255, message = "the generatedBy field must contain between 3 and 255 characters")
     private String generatedBy;
 
     private Date creationDate;

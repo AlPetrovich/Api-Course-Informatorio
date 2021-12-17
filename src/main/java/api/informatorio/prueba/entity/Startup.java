@@ -1,18 +1,12 @@
 package api.informatorio.prueba.entity;
-
-
-
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
-
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
-
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -27,24 +21,24 @@ public class Startup {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotEmpty(message = "el campo name no puede estar vacio")
-    @Size(min=3, max = 255, message = "el campo name debe tener entre 4 y 255 caracteres")
+    @NotEmpty(message = "the NAME field cannot be empty")
+    @Size(min=3, max = 255, message = "the name field must contain between 4 and 255 characters")
     private String name;
 
-    @NotEmpty(message = "el campo description no puede estar vacio")
-    @Size(min=3, max = 255, message = "el description name debe tener entre 4 y 255 caracteres")
+    @NotEmpty(message = "the DESCRIPTION field cannot be empty")
+    @Size(min=3, max = 255, message = "the description field must contain between 4 and 255 characters")
     private String description;
 
-    @NotEmpty(message = "el campo content no puede estar vacio")
-    @Size(min=3, max = 255, message = "el campo content debe tener entre 4 y 255 caracteres")
+    @NotEmpty(message = "the CONTENT field cannot be empty")
+    @Size(min=3, max = 255, message = "the content field must contain between 4 and 255 characters")
     private String content;
 
     private Date creationDate;
 
-    @Min(value = 0, message = "El campo objective debe ser mayor o igual a cero")
+    @Min(value = 0, message = "the objective field must be greater or equal to zero")
     private double objective;
 
-    //@NotEmpty(message = "el campo published no puede estar vacio")
+    //@NotEmpty(message = "the published field cannot be empty")
     private boolean published;
 
     private int counterVote;
@@ -62,7 +56,6 @@ public class Startup {
 
 
     @OneToMany(mappedBy = "startup")
-    @JsonIgnore
     private Set<Url> urlSet;
 
     @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
@@ -73,10 +66,8 @@ public class Startup {
         urlSet.add(url);
         url.setStartup(this);
     }
-    public void removeUrl(Url url){
-        urlSet.remove(url);
-        url.setStartup(null);
-    }
+
+
     public void addEvent(Event event) {
         if (this.eventSet == null) {
             this.eventSet = new HashSet<>();

@@ -1,19 +1,13 @@
 package api.informatorio.prueba.entity;
-
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
-
-
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
 import java.util.Date;
-import java.util.HashSet;
 import java.util.Set;
 
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -26,21 +20,24 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotEmpty(message = "el descriptionEvent nombre no puede estar vacio")
-    @Size(min=3, max = 255, message = "el campo descriptionEvent debe tener entre 4 y 255 caracteres")
+    @NotEmpty(message = "the DESCRIPTION field cannot be empty")
+    @Size(min=3, max = 255, message = "the descriptionEvent field must contain between 4 and 255 characters")
     private String descriptionEvent;
+
 
     private boolean active;
 
+    @NotNull(message = "creationDate cannot be null")
     private Date creationDate;
 
+    @NotNull(message = "closureDate cannot be null")
     private Date closureDate;
 
-    @NotEmpty(message = "el campo state no puede estar vacio")
-    @Size(min=3, max = 255, message = "el campo state debe tener entre 4 y 255 caracteres")
-    private String state; //abierto - en curso - finalizado
+    @NotEmpty(message = "the STATE field cannot be empty")
+    @Size(min=3, max = 255, message = "the state field must contain between 4 and 255 characters")
+    private String state;
 
-    @Min(value = 0, message = "El campo prize debe ser mayor o igual a cero")
+    @Min(value = 0, message = "the prize field must be greater or equal to zero")
     private double prize;
 
 

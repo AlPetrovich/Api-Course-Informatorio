@@ -1,0 +1,399 @@
+{
+	"info": {
+		"_postman_id": "705876bb-ea22-4ff9-8ccd-7504822c863d",
+		"name": "ApiInfo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Event",
+			"item": [
+				{
+					"name": "createEvent",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"state\": \"ABIERTO\",\r\n        \"descriptionEvent\": \"Venta Hardware\",\r\n        \"creationDate\": \"2021-03-30T00:00:00.000+00:00\",\r\n        \"closureDate\": \"2021-11-20T00:00:00.000+00:00\",\r\n        \"prize\": 3300.0\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/events/created",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"events",
+								"created"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "activeEvent",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "deactivateEvent",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/events/deactivate/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"events",
+								"deactivate",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateEvent",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "rankEvent",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "getUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "createUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"city\":\"La Escondida\",\r\n        \"country\":\"Argentina\",\r\n        \"name\": \"Carlos\",\r\n        \"lastname\": \"Gimenez\",\r\n        \"email\": \"carlos@gmail.com\",\r\n        \"creationDate\": \"2021-12-03T18:59:57.779+00:00\",\r\n        \"password\":\"12335\",\r\n        \"province\":\"Chaco\",\r\n        \"typeUser\":\"USUARIO\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllUsers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "getUserByCity",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "getUserByDate",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "updateUser",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Julian\",\r\n    \"password\":\"6666\",\r\n    \"lastname\": \"Alvarez\",\r\n    \"email\": \"julian@gmail.com\",\r\n    \"city\": \"Resistencia\",\r\n    \"province\": \"Chaco\",\r\n    \"country\": \"Argentina\",\r\n    \"type\": \"COLLABORATOR\",\r\n    \"creationDate\": \"2021-02-03T18:59:57.779+00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUserById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/users/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Startup",
+			"item": [
+				{
+					"name": "getNotPublished",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "crearStartUp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\":\"Maximus\",\r\n    \"creationDate\":\"2021-09-03T19:38:15.643+00:00\",\r\n    \"description\": \"Ventas por mayor\",\r\n    \"name\": \"Maximus\",\r\n    \"objective\": 3199,\r\n    \"published\": 1,\r\n    \"event_id\": 3,\r\n    \"tag_id\":3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/startup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"startup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getStartupById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "getAllStartup",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "updateStartup",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 4,\r\n    \"name\": \"Tecno Game\",\r\n    \"description\": \"Venta\",\r\n    \"objective\": 2133.0,\r\n    \"published\": false,\r\n    \"urlSet\": [],\r\n    \"tag\": null,\r\n    \"creationDate\": \"2021-10-11T00:00:00.000+00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/startup/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"startup",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByTagLike",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "deactivateStartup",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/startup/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"startup",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "activateStartup",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/startup/activate/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"startup",
+								"activate",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vote",
+			"item": [
+				{
+					"name": "getVoteByUserId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "getVotesById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "createVote",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"generatedBy\": \"Web\",\r\n    \"creationDate\": \"2021-01-03T18:59:57.779+00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/votes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"votes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

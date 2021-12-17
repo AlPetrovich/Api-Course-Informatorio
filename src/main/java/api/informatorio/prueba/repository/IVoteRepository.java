@@ -15,9 +15,6 @@ public interface IVoteRepository extends JpaRepository<Vote, Long> {
     @Query("FROM Vote v inner join User u on u.id= v.user.id WHERE v.user.id= :id")
     Set<Vote> getVotesByUser(@Param("id") Long id);
 
-
-    //@Query("FROM Vote v WHERE v.user_id= :id ")
-    //Set<Vote> getVoteByUser(@Param("id") Long id);
 }
 
 

@@ -23,6 +23,7 @@ public class UserService implements IUserService{
         userRepository.save(user);
     }
 
+
     @Override
     public User modifyUser(Long id,User user) {
         User userM= userRepository.getById(id);
@@ -75,7 +76,7 @@ public class UserService implements IUserService{
 
     @Override
     public Set<UserDTO> getUserByDate(Date creationDate) {
-        Set<User> userSet=userRepository.getUserbyDate(creationDate);
+        Set<User> userSet=userRepository.getUserByDate(creationDate);
         Set<UserDTO> userDTOSet= new HashSet<>();
         for (User user: userSet){
             userDTOSet.add(mapper.convertValue(user,UserDTO.class));

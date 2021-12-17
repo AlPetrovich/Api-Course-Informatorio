@@ -2,11 +2,13 @@ package api.informatorio.prueba.controller;
 
 import api.informatorio.prueba.entity.User;
 import api.informatorio.prueba.entity.UserDTO;
+import api.informatorio.prueba.exception.CustomException;
 import api.informatorio.prueba.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.validation.Errors;
+import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,7 +25,10 @@ public class UserController {
     IUserService iUserService;
 
     @PostMapping("/add")  //localhost:8080/users
-    public ResponseEntity<?> addUser(@Validated @RequestBody User user){
+    public ResponseEntity<?> addUser(@Valid @RequestBody User user, Errors errors){
+        if (errors.hasErrors()){
+            throwError(errors);
+        }
         iUserService.createUser(user);
         return ResponseEntity.ok(HttpStatus.OK);
     }
@@ -45,7 +50,10 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    public User modifyUser(@PathVariable("id") Long id,@Valid @RequestBody User user){
+    public User modifyUser(@PathVariable("id") Long id,@Valid @RequestBody User user,Errors errors){
+        if (errors.hasErrors()){
+            throwError(errors);
+        }
         return iUserService.modifyUser(id,user);
     }
 
@@ -57,6 +65,18 @@ public class UserController {
     @GetMapping("list/date")
     public Set<UserDTO> getUserByDate(@RequestParam Date creationDate){
         return iUserService.getUserByDate(creationDate);
+    }
+
+    public void throwError(Errors errors){
+        String message = "";
+        int index = 0;
+        for (ObjectError r: errors.getAllErrors()){
+            if (index > 0){
+                message += " | ";
+            }
+            message += String.format("Parameter: %s - Message: %s ", r.getObjectName(), r.getDefaultMessage());
+        }
+        throw new CustomException(message);
     }
 
 }

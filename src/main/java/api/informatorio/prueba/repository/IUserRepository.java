@@ -18,5 +18,5 @@ public interface IUserRepository extends JpaRepository<User, Long> {
     Set<User> getUserByCity(@Param("city") String city);
 
     @Query("FROM User u WHERE u.creationDate > :date")
-    Set<User> getUserbyDate(@Param("date")Date creationDate);
+    Set<User> getUserByDate(@Param("date")Date creationDate);
 }

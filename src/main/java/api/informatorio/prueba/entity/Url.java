@@ -17,11 +17,12 @@ public class Url {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotEmpty(message = "el campo url no puede estar vacio")
-    @Size(min=3, max = 255, message = "el campo url debe tener entre 4 y 255 caracteres")
+    @NotEmpty(message = "the url field cannot be empty")
+    @Size(min=3, max = 255, message = "the url field must contain between 3 and 255 characters")
     private String url;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "startup_id", nullable = false)
+    @JsonIgnore
     private Startup startup;
 }

@@ -1,16 +1,11 @@
 package api.informatorio.prueba.service;
-
 import api.informatorio.prueba.entity.*;
 import api.informatorio.prueba.repository.IStartupRepository;
 import api.informatorio.prueba.repository.IUserRepository;
 import api.informatorio.prueba.repository.IVoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
-
 
 @Service
 public class VoteService implements IVoteService{
