@@ -26,7 +26,7 @@ public class SwaggerConfig {
                 .globalOperationParameters(Arrays.asList(
                         new ParameterBuilder().
                                 name("Authorization")
-                                .description("Token de autenticación").modelRef(new ModelRef("string"))
+                                .description("authentication token").modelRef(new ModelRef("string"))
                                 .parameterType("header")
                                 .required(false)
                                 .build()

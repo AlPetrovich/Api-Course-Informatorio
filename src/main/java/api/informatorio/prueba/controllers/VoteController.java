@@ -9,7 +9,7 @@ import javax.validation.Valid;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/votes")
+@RequestMapping("api/votes")
 public class VoteController {
 
     @Autowired

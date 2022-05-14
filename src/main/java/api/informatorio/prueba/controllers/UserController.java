@@ -14,7 +14,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.Set;
 @RestController
-@RequestMapping("/users") //localhost:8080/users
+@RequestMapping("api/users") //localhost:8080/users
 public class UserController {
 
     @Autowired

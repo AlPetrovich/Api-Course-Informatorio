@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/url")
+@RequestMapping("api/url")
 public class UrlController {
     @Autowired
     IUrlService iUrlService;
