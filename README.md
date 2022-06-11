@@ -1,4 +1,5 @@
-#--------- Api rest-Informatorio
+API REST - INFORMATORIO - 
+Java - Maven - Spring Boot MVC - Spring Data - Spring Security - DTO - Hibernate - MySQL
 
 ![informatorioPORTADA](https://user-images.githubusercontent.com/86859904/160525245-34772f4d-35d8-4e1a-9078-81b64033e0d6.PNG)
 
